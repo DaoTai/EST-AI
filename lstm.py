@@ -67,17 +67,22 @@ recall = recall_score(y_test, predicted_classes, average='weighted')
 f1 = f1_score(y_test, predicted_classes, average='weighted')
 
 # ===================================
+# Record: Thuy Loi University,Web Development Fundamentals,9.2,JavaScript,6/17/2023 => Front-end Developer
 # Nhập dữ liệu mới từ bàn phím
 school = input('Nhập trường học: ')
 name_course = input('Nhập tên khoá học: ')
 average_score_course = float(input('Nhập điểm trung bình: '))
 language_course = input('Nhập ngôn ngữ lập trình: ')
-time_delta = int(input('Nhập khoảng cách thời gian (ngày): '))  # Nếu thêm trường 'time'
+time_delta = input('Nhập khoảng cách thời gian (ngày): ')  # Nếu thêm trường 'time'
 
 # Mã hoá dữ liệu đầu vào từ bàn phím
 encoded_school = label_encoders['school'].transform([school])[0]
 encoded_name_course = label_encoders['name_course'].transform([name_course])[0]
 encoded_language_course = label_encoders['language_course'].transform([language_course])[0]
+
+# Format time input
+input_datetime = datetime.strptime(time_delta, "%m/%d/%Y")
+encoded_time = (now - input_datetime).days
 
 # Tạo DataFrame cho dữ liệu mới
 new_data = {
@@ -85,7 +90,7 @@ new_data = {
     'name_course': [encoded_name_course],
     'average_score_course': [average_score_course],
     'language_course': [encoded_language_course],
-    'time': [time_delta] if 'time' in df.columns else None  # Kiểm tra xem trường 'time' có trong DataFrame không
+    'time': [encoded_time] 
 }
 
 new_df = pd.DataFrame(new_data)
