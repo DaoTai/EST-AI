@@ -1,0 +1,281 @@
+id,school,name_course,suitbale_job_course,average_score_course,language_course,register_course
+1,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,6.2,Python,3/25/2022
+2,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,7.6,Java,5/20/2023
+3,Thuy Loi University,Web Development Fundamentals,Front-end Developer,8.2,JavaScript,6/17/2023
+4,Can Tho University,Database Management Systems,Database Administrator,6.7,SQL,8/9/2023
+5,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,7.8,C++,2/24/2023
+6,Da Nang University of Science and Technology,Network Security,Network Security Specialist,7.1,C#,11/27/2022
+7,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,6.7,Python,5/19/2022
+8,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,7.8,Swift,6/22/2022
+9,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,8.0,JavaScript,4/2/2022
+10,Ho Chi Minh City University of Science,Software Engineering Principles,Full-stack Developer,8.8,Java,2/25/2022
+11,University of Engineering and Technology - Vietnam National University Hanoi,Computer Graphics and Visualization,Cybersecurity Analyst,6.4,Python,8/26/2022
+12,Duy Tan University,Operating Systems,Data Scientist,7.0,C,11/7/2023
+13,Hai Phong University,Cybersecurity and Ethical Hacking,Systems Analyst,8.6,Python,8/3/2022
+14,Hai Phong University,Data Science and Analytics,UI/UX Designer,8.3,Python,4/3/2023
+15,Vietnam National University Hanoi - University of Engineering and Technology,Computer Networks,DevOps Engineer,8.3,Java,9/28/2023
+16,Vietnam National University Hanoi - University of Engineering and Technology,Human-Computer Interaction,IT Project Manager,7.5,JavaScript,3/8/2022
+17,Thai Nguyen University,Big Data Technologies,Network Administrator,6.1,Python,9/29/2022
+18,Posts and Telecommunications Institute of Technology,Blockchain Technology,Blockchain Developer,8.6,Solidity,4/15/2023
+19,Hanoi University of Science,Computer Vision,Computer Vision Engineer,8.4,Python,4/8/2023
+20,Thai Nguyen University,Internet of Things (IoT),IoT Developer,8.6,Python,4/21/2023
+21,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,8.2,Python,3/25/2022
+22,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,8.3,Java,5/20/2023
+23,Thuy Loi University,Web Development Fundamentals,Front-end Developer,8.3,JavaScript,6/17/2023
+24,Can Tho University,Database Management Systems,Database Administrator,8.4,SQL,8/9/2023
+25,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,8.4,C++,2/24/2023
+26,Da Nang University of Science and Technology,Network Security,Network Security Specialist,8.5,C#,11/27/2022
+27,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,8.6,Python,3/25/2022
+28,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,8.6,Java,5/20/2023
+29,Thuy Loi University,Web Development Fundamentals,Front-end Developer,8.7,JavaScript,6/17/2023
+30,Can Tho University,Database Management Systems,Database Administrator,8.7,SQL,8/9/2023
+31,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,8.8,C++,2/24/2023
+32,Da Nang University of Science and Technology,Network Security,Network Security Specialist,8.8,C#,11/27/2022
+33,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,8.9,Python,5/19/2022
+34,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,9.0,Swift,6/22/2022
+35,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,9.0,JavaScript,4/2/2022
+36,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,9.1,Python,3/25/2022
+37,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,9.1,Java,5/20/2023
+38,Thuy Loi University,Web Development Fundamentals,Front-end Developer,9.2,JavaScript,6/17/2023
+39,Can Tho University,Database Management Systems,Database Administrator,9.2,SQL,8/9/2023
+40,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,9.3,C++,2/24/2023
+41,Da Nang University of Science and Technology,Network Security,Network Security Specialist,9.3,C#,11/27/2022
+42,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,9.4,Python,5/19/2022
+43,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,9.5,Swift,6/22/2022
+44,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,9.5,JavaScript,4/2/2022
+45,Ho Chi Minh City University of Science,Software Engineering Principles,Full-stack Developer,9.6,Java,2/25/2022
+46,University of Engineering and Technology - Vietnam National University Hanoi,Computer Graphics and Visualization,Cybersecurity Analyst,9.6,Python,8/26/2022
+47,Duy Tan University,Operating Systems,Data Scientist,9.7,C,11/7/2023
+48,Hai Phong University,Cybersecurity and Ethical Hacking,Systems Analyst,9.7,Python,8/3/2022
+49,Hai Phong University,Data Science and Analytics,UI/UX Designer,9.8,Python,4/3/2023
+50,Vietnam National University Hanoi - University of Engineering and Technology,Computer Networks,DevOps Engineer,9.9,Java,9/28/2023
+51,Vietnam National University Hanoi - University of Engineering and Technology,Human-Computer Interaction,IT Project Manager,9.9,JavaScript,3/8/2022
+52,Thai Nguyen University,Big Data Technologies,Network Administrator,8.4,Python,9/29/2022
+53,Posts and Telecommunications Institute of Technology,Blockchain Technology,Blockchain Developer,8.8,Solidity,4/15/2023
+54,Hanoi University of Science,Computer Vision,Computer Vision Engineer,6.0,Python,4/8/2023
+55,Thai Nguyen University,Internet of Things (IoT),IoT Developer,8.6,Python,4/21/2023
+56,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,6.4,Python,3/25/2022
+57,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,6.0,Java,5/20/2023
+58,Thuy Loi University,Web Development Fundamentals,Front-end Developer,8.2,JavaScript,6/17/2023
+59,Can Tho University,Database Management Systems,Database Administrator,5.7,SQL,8/9/2023
+60,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,7.4,C++,2/24/2023
+61,Da Nang University of Science and Technology,Network Security,Network Security Specialist,8.7,C#,11/27/2022
+62,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,7.3,Python,3/25/2022
+63,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,5.8,Java,5/20/2023
+64,Thuy Loi University,Web Development Fundamentals,Front-end Developer,6.8,JavaScript,6/17/2023
+65,Can Tho University,Database Management Systems,Database Administrator,7.1,SQL,8/9/2023
+66,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,5.3,C++,2/24/2023
+67,Da Nang University of Science and Technology,Network Security,Network Security Specialist,7.5,C#,11/27/2022
+68,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,5.2,Python,5/19/2022
+69,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,8.8,Swift,6/22/2022
+70,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,5.8,JavaScript,4/2/2022
+71,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,8.4,Python,3/25/2022
+72,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,7.0,Java,5/20/2023
+73,Thuy Loi University,Web Development Fundamentals,Front-end Developer,5.6,JavaScript,6/17/2023
+74,Can Tho University,Database Management Systems,Database Administrator,6.0,SQL,8/9/2023
+75,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,8.7,C++,2/24/2023
+76,Da Nang University of Science and Technology,Network Security,Network Security Specialist,8.6,C#,11/27/2022
+77,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,5.3,Python,5/19/2022
+78,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,7.5,Swift,6/22/2022
+79,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,7.8,JavaScript,4/2/2022
+80,Ho Chi Minh City University of Science,Software Engineering Principles,Full-stack Developer,8.4,Java,2/25/2022
+81,University of Engineering and Technology - Vietnam National University Hanoi,Computer Graphics and Visualization,Cybersecurity Analyst,8.0,Python,8/26/2022
+82,Duy Tan University,Operating Systems,Data Scientist,9.0,C,11/7/2023
+83,Hai Phong University,Cybersecurity and Ethical Hacking,Systems Analyst,6.8,Python,8/3/2022
+84,Hai Phong University,Data Science and Analytics,UI/UX Designer,6.9,Python,4/3/2023
+85,Vietnam National University Hanoi - University of Engineering and Technology,Computer Networks,DevOps Engineer,8.0,Java,9/28/2023
+86,Vietnam National University Hanoi - University of Engineering and Technology,Human-Computer Interaction,IT Project Manager,8.3,JavaScript,3/8/2022
+87,Thai Nguyen University,Big Data Technologies,Network Administrator,6.5,Python,9/29/2022
+88,Posts and Telecommunications Institute of Technology,Blockchain Technology,Blockchain Developer,7.7,Solidity,4/15/2023
+89,Hanoi University of Science,Computer Vision,Computer Vision Engineer,8.9,Python,4/8/2023
+90,Thai Nguyen University,Internet of Things (IoT),IoT Developer,7.0,Python,4/21/2023
+91,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,8.6,Python,3/25/2022
+92,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,7.5,Java,5/20/2023
+93,Thuy Loi University,Web Development Fundamentals,Front-end Developer,7.8,JavaScript,6/17/2023
+94,Can Tho University,Database Management Systems,Database Administrator,6.1,SQL,8/9/2023
+95,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,7.9,C++,2/24/2023
+96,Da Nang University of Science and Technology,Network Security,Network Security Specialist,8.0,C#,11/27/2022
+97,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,7.7,Python,3/25/2022
+98,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,8.2,Java,5/20/2023
+99,Thuy Loi University,Web Development Fundamentals,Front-end Developer,7.9,JavaScript,6/17/2023
+100,Can Tho University,Database Management Systems,Database Administrator,6.6,SQL,8/9/2023
+101,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,7.5,C++,2/24/2023
+102,Da Nang University of Science and Technology,Network Security,Network Security Specialist,7.5,C#,11/27/2022
+103,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,6.9,Python,5/19/2022
+104,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,7.1,Swift,6/22/2022
+105,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,8.6,JavaScript,4/2/2022
+106,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,5.8,Python,3/25/2022
+107,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,6.6,Java,5/20/2023
+108,Thuy Loi University,Web Development Fundamentals,Front-end Developer,8.6,JavaScript,6/17/2023
+109,Can Tho University,Database Management Systems,Database Administrator,7.8,SQL,8/9/2023
+110,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,6.0,C++,2/24/2023
+111,Da Nang University of Science and Technology,Network Security,Network Security Specialist,6.7,C#,11/27/2022
+112,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,6.2,Python,5/19/2022
+113,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,8.7,Swift,6/22/2022
+114,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,8.4,JavaScript,4/2/2022
+115,Ho Chi Minh City University of Science,Software Engineering Principles,Full-stack Developer,8.8,Java,2/25/2022
+116,University of Engineering and Technology - Vietnam National University Hanoi,Computer Graphics and Visualization,Cybersecurity Analyst,7.7,Python,8/26/2022
+117,Duy Tan University,Operating Systems,Data Scientist,8.4,C,11/7/2023
+118,Hai Phong University,Cybersecurity and Ethical Hacking,Systems Analyst,5.7,Python,8/3/2022
+119,Hai Phong University,Data Science and Analytics,UI/UX Designer,8.8,Python,4/3/2023
+120,Vietnam National University Hanoi - University of Engineering and Technology,Computer Networks,DevOps Engineer,5.7,Java,9/28/2023
+121,Vietnam National University Hanoi - University of Engineering and Technology,Human-Computer Interaction,IT Project Manager,6.0,JavaScript,3/8/2022
+122,Thai Nguyen University,Big Data Technologies,Network Administrator,5.5,Python,9/29/2022
+123,Posts and Telecommunications Institute of Technology,Blockchain Technology,Blockchain Developer,5.6,Solidity,4/15/2023
+124,Hanoi University of Science,Computer Vision,Computer Vision Engineer,5.9,Python,4/8/2023
+125,Thai Nguyen University,Internet of Things (IoT),IoT Developer,6.9,Python,4/21/2023
+126,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,6.1,Python,3/25/2022
+127,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,5.6,Java,5/20/2023
+128,Thuy Loi University,Web Development Fundamentals,Front-end Developer,7.3,JavaScript,6/17/2023
+129,Can Tho University,Database Management Systems,Database Administrator,7.5,SQL,8/9/2023
+130,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,8.1,C++,2/24/2023
+131,Da Nang University of Science and Technology,Network Security,Network Security Specialist,5.9,C#,11/27/2022
+132,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,8.7,Python,3/25/2022
+133,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,5.7,Java,5/20/2023
+134,Thuy Loi University,Web Development Fundamentals,Front-end Developer,8.5,JavaScript,6/17/2023
+135,Can Tho University,Database Management Systems,Database Administrator,8.9,SQL,8/9/2023
+136,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,8.1,C++,2/24/2023
+137,Da Nang University of Science and Technology,Network Security,Network Security Specialist,5.8,C#,11/27/2022
+138,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,7.1,Python,5/19/2022
+139,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,6.9,Swift,6/22/2022
+140,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,7.3,JavaScript,4/2/2022
+141,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,8.2,Python,3/25/2022
+142,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,5.1,Java,5/20/2023
+143,Thuy Loi University,Web Development Fundamentals,Front-end Developer,5.8,JavaScript,6/17/2023
+144,Can Tho University,Database Management Systems,Database Administrator,8.0,SQL,8/9/2023
+145,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,7.1,C++,2/24/2023
+146,Da Nang University of Science and Technology,Network Security,Network Security Specialist,7.2,C#,11/27/2022
+147,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,6.4,Python,5/19/2022
+148,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,5.9,Swift,6/22/2022
+149,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,6.1,JavaScript,4/2/2022
+150,Ho Chi Minh City University of Science,Software Engineering Principles,Full-stack Developer,6.7,Java,2/25/2022
+151,University of Engineering and Technology - Vietnam National University Hanoi,Computer Graphics and Visualization,Cybersecurity Analyst,7.5,Python,8/26/2022
+152,Duy Tan University,Operating Systems,Data Scientist,5.6,C,11/7/2023
+153,Hai Phong University,Cybersecurity and Ethical Hacking,Systems Analyst,8.3,Python,8/3/2022
+154,Hai Phong University,Data Science and Analytics,UI/UX Designer,8.0,Python,4/3/2023
+155,Vietnam National University Hanoi - University of Engineering and Technology,Computer Networks,DevOps Engineer,6.8,Java,9/28/2023
+156,Vietnam National University Hanoi - University of Engineering and Technology,Human-Computer Interaction,IT Project Manager,7.1,JavaScript,3/8/2022
+157,Thai Nguyen University,Big Data Technologies,Network Administrator,6.9,Python,9/29/2022
+158,Posts and Telecommunications Institute of Technology,Blockchain Technology,Blockchain Developer,5.7,Solidity,4/15/2023
+159,Hanoi University of Science,Computer Vision,Computer Vision Engineer,6.1,Python,4/8/2023
+160,Thai Nguyen University,Internet of Things (IoT),IoT Developer,8.7,Python,4/21/2023
+161,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,5.0,Python,3/25/2022
+162,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,8.6,Java,5/20/2023
+163,Thuy Loi University,Web Development Fundamentals,Front-end Developer,7.6,JavaScript,6/17/2023
+164,Can Tho University,Database Management Systems,Database Administrator,7.3,SQL,8/9/2023
+165,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,6.6,C++,2/24/2023
+166,Da Nang University of Science and Technology,Network Security,Network Security Specialist,5.0,C#,11/27/2022
+167,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,6.6,Python,3/25/2022
+168,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,7.6,Java,5/20/2023
+169,Thuy Loi University,Web Development Fundamentals,Front-end Developer,6.6,JavaScript,6/17/2023
+170,Can Tho University,Database Management Systems,Database Administrator,6.5,SQL,8/9/2023
+171,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,8.6,C++,2/24/2023
+172,Da Nang University of Science and Technology,Network Security,Network Security Specialist,7.2,C#,11/27/2022
+173,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,7.2,Python,5/19/2022
+174,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,8.4,Swift,6/22/2022
+175,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,6.6,JavaScript,4/2/2022
+176,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,6.4,Python,3/25/2022
+177,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,5.8,Java,5/20/2023
+178,Thuy Loi University,Web Development Fundamentals,Front-end Developer,5.9,JavaScript,6/17/2023
+179,Can Tho University,Database Management Systems,Database Administrator,7.0,SQL,8/9/2023
+180,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,8.4,C++,2/24/2023
+181,Da Nang University of Science and Technology,Network Security,Network Security Specialist,8.7,C#,11/27/2022
+182,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,8.7,Python,5/19/2022
+183,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,6.4,Swift,6/22/2022
+184,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,7.3,JavaScript,4/2/2022
+185,Ho Chi Minh City University of Science,Software Engineering Principles,Full-stack Developer,8.4,Java,2/25/2022
+186,University of Engineering and Technology - Vietnam National University Hanoi,Computer Graphics and Visualization,Cybersecurity Analyst,6.6,Python,8/26/2022
+187,Duy Tan University,Operating Systems,Data Scientist,7.7,C,11/7/2023
+188,Hai Phong University,Cybersecurity and Ethical Hacking,Systems Analyst,5.4,Python,8/3/2022
+189,Hai Phong University,Data Science and Analytics,UI/UX Designer,5.7,Python,4/3/2023
+190,Vietnam National University Hanoi - University of Engineering and Technology,Computer Networks,DevOps Engineer,8.4,Java,9/28/2023
+191,Vietnam National University Hanoi - University of Engineering and Technology,Human-Computer Interaction,IT Project Manager,8.2,JavaScript,3/8/2022
+192,Thai Nguyen University,Big Data Technologies,Network Administrator,5.7,Python,9/29/2022
+193,Posts and Telecommunications Institute of Technology,Blockchain Technology,Blockchain Developer,6.7,Solidity,4/15/2023
+194,Hanoi University of Science,Computer Vision,Computer Vision Engineer,7.0,Python,4/8/2023
+195,Thai Nguyen University,Internet of Things (IoT),IoT Developer,6.4,Python,4/21/2023
+196,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,7.2,Python,3/25/2022
+197,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,6.3,Java,5/20/2023
+198,Thuy Loi University,Web Development Fundamentals,Front-end Developer,6.0,JavaScript,6/17/2023
+199,Can Tho University,Database Management Systems,Database Administrator,5.8,SQL,8/9/2023
+200,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,7.2,C++,2/24/2023
+201,Da Nang University of Science and Technology,Network Security,Network Security Specialist,6.7,C#,11/27/2022
+202,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,7.7,Python,3/25/2022
+203,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,7.5,Java,5/20/2023
+204,Thuy Loi University,Web Development Fundamentals,Front-end Developer,6.9,JavaScript,6/17/2023
+205,Can Tho University,Database Management Systems,Database Administrator,6.3,SQL,8/9/2023
+206,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,5.9,C++,2/24/2023
+207,Da Nang University of Science and Technology,Network Security,Network Security Specialist,5.3,C#,11/27/2022
+208,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,5.3,Python,5/19/2022
+209,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,7.0,Swift,6/22/2022
+210,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,8.6,JavaScript,4/2/2022
+211,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,7.7,Python,3/25/2022
+212,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,8.5,Java,5/20/2023
+213,Thuy Loi University,Web Development Fundamentals,Front-end Developer,5.3,JavaScript,6/17/2023
+214,Can Tho University,Database Management Systems,Database Administrator,7.7,SQL,8/9/2023
+215,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,6.9,C++,2/24/2023
+216,Da Nang University of Science and Technology,Network Security,Network Security Specialist,6.3,C#,11/27/2022
+217,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,6.6,Python,5/19/2022
+218,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,8.1,Swift,6/22/2022
+219,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,7.0,JavaScript,4/2/2022
+220,Ho Chi Minh City University of Science,Software Engineering Principles,Full-stack Developer,6.3,Java,2/25/2022
+221,University of Engineering and Technology - Vietnam National University Hanoi,Computer Graphics and Visualization,Cybersecurity Analyst,8.5,Python,8/26/2022
+222,Duy Tan University,Operating Systems,Data Scientist,6.8,C,11/7/2023
+223,Hai Phong University,Cybersecurity and Ethical Hacking,Systems Analyst,7.8,Python,8/3/2022
+224,Hai Phong University,Data Science and Analytics,UI/UX Designer,8.8,Python,4/3/2023
+225,Vietnam National University Hanoi - University of Engineering and Technology,Computer Networks,DevOps Engineer,5.9,Java,9/28/2023
+226,Vietnam National University Hanoi - University of Engineering and Technology,Human-Computer Interaction,IT Project Manager,5.2,JavaScript,3/8/2022
+227,Thai Nguyen University,Big Data Technologies,Network Administrator,8.7,Python,9/29/2022
+228,Posts and Telecommunications Institute of Technology,Blockchain Technology,Blockchain Developer,9.0,Solidity,4/15/2023
+229,Hanoi University of Science,Computer Vision,Computer Vision Engineer,7.1,Python,4/8/2023
+230,Thai Nguyen University,Internet of Things (IoT),IoT Developer,7.6,Python,4/21/2023
+231,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,9.0,Python,3/25/2022
+232,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,6.4,Java,5/20/2023
+233,Thuy Loi University,Web Development Fundamentals,Front-end Developer,9.0,JavaScript,6/17/2023
+234,Can Tho University,Database Management Systems,Database Administrator,5.9,SQL,8/9/2023
+235,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,7.6,C++,2/24/2023
+236,Da Nang University of Science and Technology,Network Security,Network Security Specialist,5.6,C#,11/27/2022
+237,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,8.2,Python,3/25/2022
+238,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,7.0,Java,5/20/2023
+239,Thuy Loi University,Web Development Fundamentals,Front-end Developer,6.3,JavaScript,6/17/2023
+240,Can Tho University,Database Management Systems,Database Administrator,6.1,SQL,8/9/2023
+241,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,8.7,C++,2/24/2023
+242,Da Nang University of Science and Technology,Network Security,Network Security Specialist,7.3,C#,11/27/2022
+243,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,8.3,Python,5/19/2022
+244,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,7.9,Swift,6/22/2022
+245,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,5.0,JavaScript,4/2/2022
+246,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,8.7,Python,3/25/2022
+247,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,6.9,Java,5/20/2023
+248,Thuy Loi University,Web Development Fundamentals,Front-end Developer,6.2,JavaScript,6/17/2023
+249,Can Tho University,Database Management Systems,Database Administrator,7.9,SQL,8/9/2023
+250,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,5.2,C++,2/24/2023
+251,Da Nang University of Science and Technology,Network Security,Network Security Specialist,9.0,C#,11/27/2022
+252,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,8.6,Python,5/19/2022
+253,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,7.6,Swift,6/22/2022
+254,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,6.9,JavaScript,4/2/2022
+255,Ho Chi Minh City University of Science,Software Engineering Principles,Full-stack Developer,6.3,Java,2/25/2022
+256,University of Engineering and Technology - Vietnam National University Hanoi,Computer Graphics and Visualization,Cybersecurity Analyst,8.0,Python,8/26/2022
+257,Duy Tan University,Operating Systems,Data Scientist,7.1,C,11/7/2023
+258,Hai Phong University,Cybersecurity and Ethical Hacking,Systems Analyst,5.2,Python,8/3/2022
+259,Hai Phong University,Data Science and Analytics,UI/UX Designer,6.6,Python,4/3/2023
+260,Vietnam National University Hanoi - University of Engineering and Technology,Computer Networks,DevOps Engineer,8.4,Java,9/28/2023
+261,Vietnam National University Hanoi - University of Engineering and Technology,Human-Computer Interaction,IT Project Manager,6.7,JavaScript,3/8/2022
+262,Thai Nguyen University,Big Data Technologies,Network Administrator,7.3,Python,9/29/2022
+263,Posts and Telecommunications Institute of Technology,Blockchain Technology,Blockchain Developer,6.0,Solidity,4/15/2023
+264,Hanoi University of Science,Computer Vision,Computer Vision Engineer,6.5,Python,4/8/2023
+265,Thai Nguyen University,Internet of Things (IoT),IoT Developer,5.2,Python,4/21/2023
+266,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,6.5,Python,3/25/2022
+267,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,5.9,Java,5/20/2023
+268,Thuy Loi University,Web Development Fundamentals,Front-end Developer,8.3,JavaScript,6/17/2023
+269,Can Tho University,Database Management Systems,Database Administrator,5.1,SQL,8/9/2023
+270,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,9.0,C++,2/24/2023
+271,Da Nang University of Science and Technology,Network Security,Network Security Specialist,9.0,C#,11/27/2022
+272,Ho Chi Minh City University of Science,Introduction to Computer Science,Software Developer,5.7,Python,3/25/2022
+273,Hanoi University of Science,Data Structures and Algorithms,Data Analyst,8.1,Java,5/20/2023
+274,Thuy Loi University,Web Development Fundamentals,Front-end Developer,7.6,JavaScript,6/17/2023
+275,Can Tho University,Database Management Systems,Database Administrator,6.6,SQL,8/9/2023
+276,Vietnam National University Ho Chi Minh City - University of Science,Object-Oriented Programming,Software Engineer,8.9,C++,2/24/2023
+277,Da Nang University of Science and Technology,Network Security,Network Security Specialist,6.6,C#,11/27/2022
+278,Hanoi University of Science,Artificial Intelligence and Machine Learning,Machine Learning Engineer,5.2,Python,5/19/2022
+279,University of Science - Vietnam National University Hanoi,Mobile App Development,Mobile App Developer,8.1,Swift,6/22/2022
+280,Thuy Loi University,Cloud Computing,Cloud Solutions Architect,8.9,JavaScript,4/2/2022
