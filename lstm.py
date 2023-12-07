@@ -1,108 +1,103 @@
 import pandas as pd
 import numpy as np
-from datetime import datetime, timedelta
-import random
+from datetime import datetime
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import LSTM, Dense, Embedding, Dropout
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-from sklearn.metrics import precision_score, recall_score, f1_score
+from tensorflow import keras
+from keras.models import Sequential
+from keras.layers import LSTM, Dense, Embedding, Dropout
+from keras.utils import to_categorical
+# Định nghĩa các trường trong file csv:
+"""
+    id: id người dùng
+    school: trường học
+    name_course: tên khoá học đăng ký
+    language_course: ngôn ngữ lập trình (công nghệ) sử dụng trong khoá học
+    average_score_course: điểm bài tập trung bình của người dùng tại khoá học
+    register_course_time: thời gian người dùng đăng ký khoá học
+    love_language: ngôn ngữ lập trình yêu thích của người dùng
+    suitable_job_course: lĩnh vực phù hợp của khoá học => Nhãn
+"""
+#distance_time: khoảng cách thời gian giữa hiện tại và thời gian đăng ký khoá học của người dùng
 
+
+# Các field có kiểu chuỗi
+LIST_STRING_COLUMNS = ['school', 'name_course','language_course','suitable_job_course', 'love_language']
+
+# Các thuộc tính để huấn luyện
+LIST_FEATURES = ['school', 'name_course','language_course', 'love_language' , 'average_score_course', 'distance_time']
+
+# Nhãn
+LABEL = ['suitable_job_course']
 
 # Đọc dữ liệu từ file CSV
-data = pd.read_csv('mock_data.csv')
+data = pd.read_csv('data.csv')
 df = pd.DataFrame(data)
 
 
 # Tiền xử lý dữ liệu
+# Tạo các LabelEncoder cho các cột chuỗi
 label_encoders = {}
-for column in ['school', 'name_course', 'average_score_course', 'language_course','suitbale_job_course']:
+for column in LIST_STRING_COLUMNS:
     label_encoders[column] = LabelEncoder()
     df[column] = label_encoders[column].fit_transform(df[column])
 
 # Convert dữ liệu thời gian
 now = datetime.now()
-df['register_course'] = pd.to_datetime(data['register_course'])
-df['time'] = (now - df['register_course']).dt.days
+df['register_course_time'] = pd.to_datetime(data['register_course_time'])
+df['distance_time'] = (now - df['register_course_time']).dt.days
+max_value = df['distance_time'].max()
 
+# Chuẩn bị FEATURES và LABEL
+X = df[LIST_FEATURES]
+Y = df[LABEL]
 
-# Chuẩn bị dữ liệu đầu vào và đầu ra
-X = df[['school', 'name_course', 'average_score_course', 'language_course', 'time']]
-Y = df['suitbale_job_course']
+# Convert labels to one-hot encoding
+Y = to_categorical(Y)
 
-max_value = df['time'].max()
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, shuffle=False )
 
-# Chia dữ liệu thành tập huấn luyện và tập kiểm tra
-X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 
 # Xây dựng mô hình LSTM
+# Build the LSTM model
 model = Sequential()
-model.add(Embedding(input_dim=max_value +1, output_dim=64))
- #input_dim: số lượng từ vựng trong dữ liệu văn bản đang sử dụng  xác định kích thước của ma trận trọng số trong lớp nhúng và sẽ bằng số từ vựng khác nhau trong dữ liệu. Vậy nếu thêm FIELD['time'] giá trị khoảng cách (ngày) sẽ có thể lớn hơn số lượng bản ghi nên tránh lỗi compile thì dùng giá trị lớn nhất của trường này (max_value +1)
+model.add(Embedding(input_dim=max_value+1, output_dim=64)) 
 model.add(LSTM(64))
 model.add(Dropout(0.2))
-model.add(Dropout(0.2))
-model.add(Dense(1, activation='sigmoid'))  
+model.add(Dense(Y.shape[1], activation='softmax'))  # Output has the same number of classes as the labels
 
-model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-# # Huấn luyện mô hình
-model.fit(X_train, y_train, epochs=10, batch_size=32, validation_data=(X_test, y_test))
-
-# # Đánh giá mô hình
+# Train the model
+model.fit(X_train, y_train, epochs=20, batch_size=32, verbose=1, shuffle=True, validation_data=(X_test, y_test))
+#  Đánh giá mô hình
 loss, accuracy = model.evaluate(X_test, y_test)
+print("\t*****Đánh giá mô hình*****")
 print(f'Loss: {loss}, Accuracy: {accuracy}')
 
-# Dự đoán trên tập kiểm tra
-predictions = model.predict(X_test)
 
-# Chuyển đổi dự đoán thành nhãn dự đoán (ví dụ: argmax cho mô hình classification)
-predicted_classes = np.argmax(predictions, axis=1)
+# Lấy bản ghi random làm dữ lệu test
+random_index = 1
+input_data = X_test.iloc[[random_index]]
 
-# Tính toán precision, recall và F1-score
-precision = precision_score(y_test, predicted_classes, average='weighted')
-recall = recall_score(y_test, predicted_classes, average='weighted')
-f1 = f1_score(y_test, predicted_classes, average='weighted')
+print("\t*****Input*****")
+decoded_row = {}
+for column in LIST_FEATURES:
+    if column in label_encoders:
+        label_encoder = label_encoders[column]
+        value = X_test[column].iloc[random_index]
+        decoded_value = label_encoder.inverse_transform([value])[0]
+        decoded_row[column] = decoded_value
+print(decoded_row)
 
-# ===================================
-# Record: Thuy Loi University,Web Development Fundamentals,9.2,JavaScript,6/17/2023 => Front-end Developer
-# Nhập dữ liệu mới từ bàn phím
-school = input('Nhập trường học: ')
-name_course = input('Nhập tên khoá học: ')
-average_score_course = float(input('Nhập điểm trung bình: '))
-language_course = input('Nhập ngôn ngữ lập trình: ')
-time_delta = input('Nhập khoảng cách thời gian (ngày): ')  # Nếu thêm trường 'time'
+real_label = y_test[[random_index]]
+real_label_index = np.argmax(real_label, axis=1)[0]
+real_result = label_encoders['suitable_job_course'].inverse_transform([real_label_index])[0]
+print("Real label: ", real_result)
 
-# Mã hoá dữ liệu đầu vào từ bàn phím
-encoded_school = label_encoders['school'].transform([school])[0]
-encoded_name_course = label_encoders['name_course'].transform([name_course])[0]
-encoded_language_course = label_encoders['language_course'].transform([language_course])[0]
+# Dự đoán 
+predict_label = model.predict(input_data)
+predict_label_index = np.argmax(predict_label, axis=1)[0] 
+result = label_encoders['suitable_job_course'].inverse_transform([predict_label_index])[0]
 
-# Format time input
-input_datetime = datetime.strptime(time_delta, "%m/%d/%Y")
-encoded_time = (now - input_datetime).days
-
-# Tạo DataFrame cho dữ liệu mới
-new_data = {
-    'school': [encoded_school],
-    'name_course': [encoded_name_course],
-    'average_score_course': [average_score_course],
-    'language_course': [encoded_language_course],
-    'time': [encoded_time] 
-}
-
-new_df = pd.DataFrame(new_data)
-
-# Dự đoán với mô hình LSTM
-new_prediction = model.predict(new_df)
-
-# Lấy nhãn tương ứng với giá trị dự đoán
-predicted_class = int(round(new_prediction[0][0]))  # Lấy giá trị dự đoán (có thể cần làm tròn)
-
-# Chuyển ngược từ nhãn đã dự đoán về tên ngành
-predicted_course = label_encoders['suitbale_job_course'].inverse_transform([predicted_class])[0]
-
-# In tên ngành dự đoán
-print(f'Tên ngành phù hợp: {predicted_course}')
+print("Predicted label:", result)
