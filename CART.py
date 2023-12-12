@@ -65,13 +65,12 @@ print(f"Dự đoán: {decoded_prediction[0]}")
 # Đánh giá mô hình
 print("\t*****Đánh giá mô hình*****")
 y_pred = model.predict(X_test)
-precision = metrics.precision_score(y_test, y_pred, average='micro')
-recall = metrics.recall_score(y_test, y_pred,average='micro')
+precision = metrics.precision_score(y_test, y_pred, average='weighted', zero_division=0)
+recall = metrics.recall_score(y_test, y_pred,average='weighted', zero_division=0)
 print("Precision:", precision)
 print("Recall:", recall)
-F1 = (2 * precision * recall) / (precision + recall)
-print("F1 harmonic mean: ",F1)
-
+F1 = metrics.f1_score(y_test, y_pred,average='weighted')
+print("F1: ", F1)
 
 
 
