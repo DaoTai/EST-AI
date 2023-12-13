@@ -8,8 +8,8 @@ import pandas as pd
 from datetime import datetime, timedelta
 
 
-LIST_STRING_COLUMNS = ['school', 'name_course','language_course','suitable_job_course', 'love_language']
-LIST_FEATURES = ['school', 'name_course','language_course', 'love_language' , 'average_score_course', 'distance_time']
+LIST_STRING_COLUMNS = ['school', 'name_course','language_course','suitable_job_course', 'love_language',"level_course"]
+LIST_FEATURES = ['school', 'name_course','language_course', 'love_language' , 'average_score_course', 'distance_time',"level_course"]
 LABEL = ['suitable_job_course']
 
 data = pd.read_csv('data.csv')
@@ -24,7 +24,7 @@ for column in LIST_STRING_COLUMNS:
 
 # Convert dữ liệu thời gian
 now = datetime.now()
-df['register_course_time'] = pd.to_datetime(data['register_course_time'])
+df['register_course_time'] = pd.to_datetime(data['register_course_time']).dt.tz_localize(None)
 df['distance_time'] = (now - df['register_course_time']).dt.days    
 
 # Chuẩn bị features và label
@@ -32,7 +32,7 @@ X = df[LIST_FEATURES]
 Y = df[LABEL]
 
 # Chia dữ liệu thành tập huấn luyện và tập kiểm tra
-X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3 )
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, shuffle=True )
 
 # Xây dựng model
 model = DecisionTreeClassifier(criterion='gini')
@@ -49,11 +49,12 @@ for column in LIST_FEATURES:
         value = X_test[column].iloc[index_of_sample]
         decoded_value = label_encoder.inverse_transform([value])[0]
         decoded_row[column] = decoded_value
-print(decoded_row)
+        
+# print(decoded_row)
 
 real_label = y_test.iloc[[index_of_sample]]
 decoded_real_label = label_encoders['suitable_job_course'].inverse_transform(real_label.iloc[0])[0]
-print("Thực tế: ",decoded_real_label)
+# print("Thực tế: ",decoded_real_label)
 
 
 # Dự đoán
@@ -63,13 +64,14 @@ decoded_prediction = label_encoders['suitable_job_course'].inverse_transform(pre
 print(f"Dự đoán: {decoded_prediction[0]}")
 
 # Đánh giá mô hình
+
 print("\t*****Đánh giá mô hình*****")
 y_pred = model.predict(X_test)
-precision = metrics.precision_score(y_test, y_pred, average='weighted', zero_division=0)
-recall = metrics.recall_score(y_test, y_pred,average='weighted', zero_division=0)
+precision = metrics.precision_score(y_test, y_pred, average='macro', zero_division=0)
+recall = metrics.recall_score(y_test, y_pred,average='macro', zero_division=0)
 print("Precision:", precision)
 print("Recall:", recall)
-F1 = metrics.f1_score(y_test, y_pred,average='weighted')
+F1 = metrics.f1_score(y_test, y_pred,average='macro')
 print("F1: ", F1)
 
 
