@@ -21,98 +21,95 @@ from keras.utils import to_categorical
     distance_time: khoảng cách thời gian giữa hiện tại và thời gian đăng ký khoá học của người dùng
     suitable_job_course: lĩnh vực phù hợp của khoá học => Nhãn
 """
-
-
-# Các field có kiểu chuỗi
+ # Các field có kiểu chuỗi
 LIST_STRING_COLUMNS = ['school', 'name_course','language_course','suitable_job_course', 'love_language', "level_course"]
-
 # Các thuộc tính để huấn luyện
 LIST_FEATURES = ['school', 'name_course','language_course', 'love_language' , 'average_score_course', "level_course", 'distance_time']
 
 # Nhãn
 LABEL = ['suitable_job_course']
 
-# Đọc dữ liệu từ file CSV
-data = pd.read_csv('data.csv')
-df = pd.DataFrame(data)
+
+def run_predict(inputData,myAvgScores):
+    df = pd.DataFrame(inputData)
+    # Tiền xử lý dữ liệu
+    # Tạo các LabelEncoder cho các features chuỗi
+    label_encoders = {}
+    for column in LIST_STRING_COLUMNS:
+        label_encoders[column] = LabelEncoder()
+        df[column] = label_encoders[column].fit_transform(df[column])
+    # Convert dữ liệu thời gian
+    now = datetime.now()
+    df['register_course_time'] = pd.to_datetime(df ['register_course_time']).dt.tz_localize(None)
+    df['distance_time'] = (now - df['register_course_time']).dt.days
+    # Chuẩn bị FEATURES và LABEL
+    X = df[LIST_FEATURES].astype('float32')
+    Y = df[LABEL]
+
+    # Convert labels to one-hot encoding
+    Y = to_categorical(Y)
+   
+    X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, shuffle=True )
 
 
-# Tiền xử lý dữ liệu
-# Tạo các LabelEncoder cho các features chuỗi
-label_encoders = {}
-for column in LIST_STRING_COLUMNS:
-    label_encoders[column] = LabelEncoder()
-    df[column] = label_encoders[column].fit_transform(df[column])
+    # Xây dựng mô hình LSTM
+    # Build the LSTM model
+    model = Sequential()
+    model.add(LSTM(64,input_shape=(X_train.shape[1], 1)))
+    model.add(Dropout(0.2))
+    model.add(Dense(Y.shape[1], activation='softmax'))  # Output has the same number of classes as the labels
 
-# Convert dữ liệu thời gian
-now = datetime.now()
-df['register_course_time'] = pd.to_datetime(data['register_course_time']).dt.tz_localize(None)
-df['distance_time'] = (now - df['register_course_time']).dt.days
-max_value = df['distance_time'].max()
-# Chuẩn bị FEATURES và LABEL
-X = df[LIST_FEATURES]
-Y = df[LABEL]
+    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
+    # Train the model
+    model.fit(X_train, y_train, epochs=20, batch_size=32, verbose=1, shuffle=True, validation_data=(X_test, y_test))
 
-# Convert labels to one-hot encoding
-Y = to_categorical(Y)
+    # #Predict record in test size
+    y_pred = model.predict(X_test)
+    #  Đánh giá mô hình
+    loss, accuracy = model.evaluate(X_test, y_test)
 
-X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, shuffle=True )
+    # print("\t*****Đánh giá mô hình*****")
+    print(f'Loss: {loss}, Accuracy: {accuracy}')
 
+    # Chuyển đổi kết quả dự đoán thành nhãn được encode
+    y_pred_encoded = np.argmax(y_pred, axis=1)
+    y_test_encoded = np.argmax(y_test, axis=1)
 
-# Xây dựng mô hình LSTM
-# Build the LSTM model
-model = Sequential()
-model.add(LSTM(64,input_shape=(X_train.shape[1], 1)))
-model.add(Dropout(0.2))
-model.add(Dense(Y.shape[1], activation='softmax'))  # Output has the same number of classes as the labels
+    # Tính các độ đo precision, recall và F1-score
+    precision = precision_score(y_test_encoded, y_pred_encoded, average='weighted', zero_division=0)
+    recall = recall_score(y_test_encoded, y_pred_encoded, average='weighted', zero_division=0)
+    f1 = f1_score(y_test_encoded, y_pred_encoded, average='weighted')
 
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+    print(f'Precision: {precision}, Recall: {recall}, F1-score: {f1}')
 
-# Train the model
-model.fit(X_train, y_train, epochs=20, batch_size=32, verbose=1, shuffle=True, validation_data=(X_test, y_test))
-
-#Predict record in test size
-y_pred = model.predict(X_test)
-#  Đánh giá mô hình
-loss, accuracy = model.evaluate(X_test, y_test)
-
-# print("\t*****Đánh giá mô hình*****")
-print(f'Loss: {loss}, Accuracy: {accuracy}')
-
-# Chuyển đổi kết quả dự đoán thành nhãn được encode
-y_pred_encoded = np.argmax(y_pred, axis=1)
-y_test_encoded = np.argmax(y_test, axis=1)
-
-# Tính các độ đo precision, recall và F1-score
-precision = precision_score(y_test_encoded, y_pred_encoded, average='weighted', zero_division=0)
-recall = recall_score(y_test_encoded, y_pred_encoded, average='weighted', zero_division=0)
-f1 = f1_score(y_test_encoded, y_pred_encoded, average='weighted')
-
-print(f'Precision: {precision}, Recall: {recall}, F1-score: {f1}')
-
-# Lấy bản ghi random làm dữ lệu test
-random_index = 2
-input_data = X_test.iloc[[random_index]]
-
-print("\t*****Input*****")
-decoded_row = {}
-for column in LIST_FEATURES:
-    if column in label_encoders:
+    # ====================Dữ liệu thực tế đầu vào
+    dfMyAvgScores = pd.DataFrame(myAvgScores)
+    dfMyAvgScores['register_course_time'] = pd.to_datetime(dfMyAvgScores ['register_course_time']).dt.tz_localize(None)
+    dfMyAvgScores['distance_time'] = (now - dfMyAvgScores['register_course_time']).dt.days
+    
+     # Chuẩn bị FEATURES và LABEL
+    for column in LIST_STRING_COLUMNS:
         label_encoder = label_encoders[column]
-        value = X_test[column].iloc[random_index]
-        decoded_value = label_encoder.inverse_transform([value])[0]
-        decoded_row[column] = decoded_value
-print(decoded_row)
+        dfMyAvgScores[column] = label_encoder.transform(dfMyAvgScores[column])
+    myFeatures = dfMyAvgScores[LIST_FEATURES].astype('float32')
+    myLabels = dfMyAvgScores[LABEL]
+    predicted_jobs = []
+    for index,row in myFeatures.iterrows():
+        decoded_data={}
+        for column in LIST_FEATURES:
+            if column in label_encoders:
+                label_encoder = label_encoders[column]
+                value = row[column]
+                decoded_value = label_encoder.inverse_transform([int(value)])[0]
+                decoded_data[column] = decoded_value
+        # print("decoded_data: ",decoded_data, flush=True)
+        prediction = model.predict([row])
+        predicted_class = np.argmax(prediction, axis=1)[0]
+        result = label_encoders['suitable_job_course'].inverse_transform([predicted_class])[0]
+        print("result: ",result,flush=True)
+        predicted_jobs.append(result)
 
-real_label = y_test[[random_index]]
-real_label_index = np.argmax(real_label, axis=1)[0]
-real_result = label_encoders['suitable_job_course'].inverse_transform([real_label_index])[0]
-print("Real label: ", real_result)
+    return predicted_jobs
 
-# Dự đoán 
-predict_label = model.predict(input_data)
-predict_label_index = np.argmax(predict_label, axis=1)[0] 
-result = label_encoders['suitable_job_course'].inverse_transform([predict_label_index])[0]
 
-print("Predicted label:", result)
