@@ -51,7 +51,6 @@ def run_predict(inputData,myAvgScores):
    
     X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, shuffle=True )
 
-
     # Xây dựng mô hình LSTM
     # Build the LSTM model
     model = Sequential()
@@ -89,25 +88,49 @@ def run_predict(inputData,myAvgScores):
     dfMyAvgScores['distance_time'] = (now - dfMyAvgScores['register_course_time']).dt.days
     
      # Chuẩn bị FEATURES và LABEL
+    unseen_values = {}
     for column in LIST_STRING_COLUMNS:
         label_encoder = label_encoders[column]
-        dfMyAvgScores[column] = label_encoder.transform(dfMyAvgScores[column])
+        # Lấy ra danh sách giá trị chưa được mã hoá ở tập dataset mã hoá
+        unseen_vals = dfMyAvgScores[~dfMyAvgScores[column].isin(label_encoder.classes_)][column].unique()
+        unseen_values[column] = unseen_vals.tolist()
+        if unseen_vals.size > 0:
+            # Lấy giá trị mã hoá lớn nhất tại column đang xét
+            max_label = max(label_encoder.transform(label_encoder.classes_))
+            # Lấy danh sách các lớp hiện tại
+            existing_classes = label_encoder.classes_.tolist()
+            # Mở rộng danh sách các lớp
+            existing_classes.extend(unseen_vals)
+            # Sắp xếp lại và loại bỏ các giá trị trùng lặp
+            existing_classes = sorted(set(existing_classes))
+            # Cập nhật lại danh sách các lớp trong encoder
+            label_encoder.classes_ = np.array(existing_classes)
+            # Mã hoá lại cột tương ứng trong dataframe
+            dfMyAvgScores[column] = max_label + 1
+            # print(f"Column {column}: ", dfMyAvgScores[column])
+        else:
+            dfMyAvgScores[column] = label_encoder.transform(dfMyAvgScores[column])
+      
+        
     myFeatures = dfMyAvgScores[LIST_FEATURES].astype('float32')
     myLabels = dfMyAvgScores[LABEL]
     predicted_jobs = []
     for index,row in myFeatures.iterrows():
         decoded_data={}
+        # print("Encode_data: ", row)
         for column in LIST_FEATURES:
             if column in label_encoders:
                 label_encoder = label_encoders[column]
                 value = row[column]
                 decoded_value = label_encoder.inverse_transform([int(value)])[0]
                 decoded_data[column] = decoded_value
+            else:
+                decoded_data[column] = row[column]
         # print("decoded_data: ",decoded_data, flush=True)
         prediction = model.predict([row])
         predicted_class = np.argmax(prediction, axis=1)[0]
         result = label_encoders['suitable_job_course'].inverse_transform([predicted_class])[0]
-        print("result: ",result,flush=True)
+        # print("result: ",result,flush=True)
         predicted_jobs.append(result)
 
     return predicted_jobs

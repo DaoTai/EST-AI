@@ -15,7 +15,8 @@ def predict():
        redicted_jobs = run_predict(trainData,myAvgScores)
        return jsonify(redicted_jobs)
     except Exception as e:
-        return jsonify(e), 400
+        print("Error: ",e)
+        return jsonify({'error': 'Lỗi dự đoán!'}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)
