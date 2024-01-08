@@ -59,7 +59,7 @@ def run_predict(inputData,myAvgScores):
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
     # Train the model
-    model.fit(X_train, y_train, epochs=50, batch_size=32, verbose=1, shuffle=True, validation_data=(X_test, y_test))
+    model.fit(X_train, y_train, epochs=20, batch_size=32, verbose=1, shuffle=True, validation_data=(X_test, y_test))
 
     y_pred = model.predict(X_test)
     #  Đánh giá mô hình
