@@ -9,8 +9,8 @@ def hello():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    print("=====AI======",flush=True)
     payload = request.get_json()
+    print("payload: ",payload)
     trainData = payload['trainData']
     myAvgScores =  payload['myAvgScores']
     if not trainData or not myAvgScores:
