@@ -68,6 +68,7 @@ def run_predict(inputData,myAvgScores):
         model.fit(X_train, y_train, epochs=50, batch_size=32, verbose=1, shuffle=True, validation_data=(X_test, y_test))
         model.save(model_file)
 
+  
 
     model.summary()   
     y_pred = model.predict(X_test)
