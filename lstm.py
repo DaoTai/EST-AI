@@ -1,10 +1,11 @@
 import pandas as pd
 import numpy as np
+import os
 from datetime import datetime
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import precision_score, recall_score, f1_score
-from keras.models import Sequential
+from keras.models import Sequential, load_model
 from keras.layers import LSTM, Dense, Dropout
 from keras.utils import to_categorical
 # Định nghĩa các trường :
@@ -27,7 +28,7 @@ LIST_FEATURES = ['school', 'name_course','language_course', 'love_language' , 'a
 
 # Nhãn
 LABEL = ['suitable_job_course']
-
+model_file = r'model.keras'
 
 def run_predict(inputData,myAvgScores):
     df = pd.DataFrame(inputData)
@@ -47,20 +48,28 @@ def run_predict(inputData,myAvgScores):
 
     # Convert labels to one-hot encoding: convert value label to binary vector => Good for model
     Y = to_categorical(Y)
-    X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, shuffle=True, )
+    X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, shuffle=True )
+    # print("X_train: ",len(X_train), flush=True)
+    # print("X_test: ",len(X_test), flush=True)
 
-    # Xây dựng mô hình LSTM
+
     # Build the LSTM model
-    model = Sequential()
-    model.add(LSTM(64,input_shape=(X_train.shape[1], 1)))
-    model.add(Dropout(0.2))
-    model.add(Dense(Y.shape[1], activation='softmax'))  # Output has the same number of classes as the labels
+    if os.path.exists(model_file):
+        model = load_model(model_file, compile=True)
+    else:
+        model = Sequential()
+        model.add(LSTM(100,input_shape=(X_train.shape[1], 1)))
+        model.add(Dropout(0.2))
+        model.add(Dense(Y.shape[1], activation='softmax'))  # Output has the same number of classes as the labels
 
-    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+        model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-    # Train the model
-    model.fit(X_train, y_train, epochs=20, batch_size=32, verbose=1, shuffle=True, validation_data=(X_test, y_test))
+        # Train the model
+        model.fit(X_train, y_train, epochs=50, batch_size=32, verbose=1, shuffle=True, validation_data=(X_test, y_test))
+        model.save(model_file)
 
+
+    model.summary()   
     y_pred = model.predict(X_test)
     #  Đánh giá mô hình
     loss, accuracy = model.evaluate(X_test, y_test)
