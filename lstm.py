@@ -40,7 +40,7 @@ def run_predict(inputData,myAvgScores):
         df[column] = label_encoders[column].fit_transform(df[column])
     # Convert dữ liệu thời gian
     now = datetime.now()
-    df['register_course_time'] = pd.to_datetime(df ['register_course_time']).dt.tz_localize(None)
+    df['register_course_time'] = pd.to_datetime(df['register_course_time']).dt.tz_localize(None)
     df['distance_time'] = (now - df['register_course_time']).dt.days
     # Chuẩn bị FEATURES và LABEL
     X = df[LIST_FEATURES].astype('float32')
@@ -48,34 +48,38 @@ def run_predict(inputData,myAvgScores):
 
     # Convert labels to one-hot encoding: convert value label to binary vector => Good for model
     Y = to_categorical(Y)
-    X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, shuffle=True )
-    # print("X_train: ",len(X_train), flush=True)
-    # print("X_test: ",len(X_test), flush=True)
-
+    X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, shuffle=True)
 
     # Build the LSTM model
     if os.path.exists(model_file):
         model = load_model(model_file, compile=True)
     else:
         model = Sequential()
-        model.add(LSTM(100,input_shape=(X_train.shape[1], 1)))
+        model.add(LSTM(100,input_shape=(X_train.shape[1],1)))
         model.add(Dropout(0.2))
-        model.add(Dense(Y.shape[1], activation='softmax'))  # Output has the same number of classes as the labels
-
+        model.add(Dense(Y.shape[1], activation='softmax'))  # Y.shape[1] = number of classes of the label column
         model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-
-        # Train the model
         model.fit(X_train, y_train, epochs=50, batch_size=32, verbose=1, shuffle=True, validation_data=(X_test, y_test))
         model.save(model_file)
-
-  
-
-    model.summary()   
-    y_pred = model.predict(X_test)
+       
+    try:
+       y_pred = model.predict(X_test)
+       loss, accuracy = model.evaluate(X_test, y_test)
+    except:
+        # Exception xảy ra khi số chiều của vector Y (Y.shape[1]) - số lớp của cột Y khác với tham số của model lưu vào file .keras trước đó
+        model = Sequential()
+        model.add(LSTM(100,input_shape=(X_train.shape[1],1)))
+        model.add(Dropout(0.2))
+        model.add(Dense(Y.shape[1], activation='softmax'))  # Y.shape[1] = number of classes of the label column
+        model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+        model.fit(X_train, y_train, epochs=50, batch_size=32, verbose=1, shuffle=True, validation_data=(X_test, y_test))
+    
+    #Summary model
+    model.summary()  
+    
     #  Đánh giá mô hình
     loss, accuracy = model.evaluate(X_test, y_test)
     print(f'Loss: {loss}, Accuracy: {accuracy}')
-
     # Chuyển label từ One-hot coding về dạng số: Lấy index có giá trị lớn nhất của từng vector con trong ma trận
     max_y_pred = np.argmax(y_pred, axis=1)
     max_y_test = np.argmax(y_test, axis=1)
@@ -84,15 +88,13 @@ def run_predict(inputData,myAvgScores):
     precision = precision_score(max_y_test, max_y_pred, average='weighted', zero_division=0)
     recall = recall_score(max_y_test, max_y_pred, average='weighted', zero_division=0)
     f1 = f1_score(max_y_test, max_y_pred, average='weighted')
-
     print(f'Precision: {precision}, Recall: {recall}, F1-score: {f1}')
 
-    # ====================Dữ liệu thực tế đầu vào
+    # === User's data ===
     dfMyAvgScores = pd.DataFrame(myAvgScores)
     dfMyAvgScores['register_course_time'] = pd.to_datetime(dfMyAvgScores ['register_course_time']).dt.tz_localize(None)
     dfMyAvgScores['distance_time'] = (now - dfMyAvgScores['register_course_time']).dt.days
-    
-     # Chuẩn bị FEATURES và LABEL
+     # Chuẩn bị FEATURES 
     unseen_values = {}
     for column in LIST_STRING_COLUMNS:
         label_encoder = label_encoders[column]
@@ -109,7 +111,7 @@ def run_predict(inputData,myAvgScores):
         dfMyAvgScores[column] = label_encoder.transform(dfMyAvgScores[column])
       
     myFeatures = dfMyAvgScores[LIST_FEATURES].astype('float32')
-    myLabels = dfMyAvgScores[LABEL]
+    # myLabels = dfMyAvgScores[LABEL]
     predicted_jobs = []
     for index,row in myFeatures.iterrows():
         decoded_data={}
