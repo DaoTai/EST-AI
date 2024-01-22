@@ -3,9 +3,6 @@ from flask import Flask, jsonify, request
 from lstm import run_predict
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def hello():
-    return jsonify("Hello world")
 
 @app.route('/predict', methods=['POST'])
 def predict():
