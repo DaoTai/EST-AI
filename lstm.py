@@ -63,7 +63,6 @@ def run_predict(inputData,myAvgScores):
         model.save(model_file)
        
     try:
-       y_pred = model.predict(X_test)
        loss, accuracy = model.evaluate(X_test, y_test)
     except:
         # Exception xảy ra khi số chiều của vector Y (Y.shape[1]) - số lớp của cột Y khác với tham số của model lưu vào file .keras trước đó
@@ -76,6 +75,7 @@ def run_predict(inputData,myAvgScores):
     
     #Summary model
     model.summary()  
+    y_pred = model.predict(X_test)
     
     #  Đánh giá mô hình
     loss, accuracy = model.evaluate(X_test, y_test)
