@@ -25,7 +25,6 @@ from keras.utils import to_categorical
 LIST_STRING_COLUMNS = ['school', 'name_course','language_course','suitable_job_course', 'love_language', "level_course"]
 # Các thuộc tính để huấn luyện
 LIST_FEATURES = ['school', 'name_course','language_course', 'love_language' , 'average_score_course', "level_course", 'distance_time']
-
 # Nhãn
 LABEL = ['suitable_job_course']
 model_file = r'model.keras'
